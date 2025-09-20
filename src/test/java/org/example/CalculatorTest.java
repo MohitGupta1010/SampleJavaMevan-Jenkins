@@ -36,7 +36,7 @@ public class CalculatorTest {
     }
     @Test
     void testDivPositiveNumbers(){
-        assertEquals(5,calc.add(10,2));
+        assertEquals(5,calc.div(10,2));
         System.out.println("Test 3 Executed");
     }
     @Test
