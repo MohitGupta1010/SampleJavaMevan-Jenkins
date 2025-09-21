@@ -9,6 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mvn clean install'
+                stash name: 'jar-artifacts', includes: 'target/*.jar'
             }
         }
         stage('Test') {
@@ -18,6 +19,7 @@ pipeline {
         }
         stage('Archive'){
             steps {
+                unstash 'jar-artifacts'
                 archiveArtifacts artifacts: 'target/*.jar'
             }
         }
